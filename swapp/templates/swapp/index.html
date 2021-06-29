@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>sw app !!!</title>
+  </head>
+  <body>
+    <form action="#" method="get">
+      <input type="submit" class="btn" value="Fetch" name="fetchButton">
+     </form>
+     
+{% if files_list %}
+    <ul>
+    {% for item in files_list %}
+        <li><a href="/swapp/display/{{ item.filename }}">{{ item.filename }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No files are available.</p>
+{% endif %}
+
+  </body>
+</html>
