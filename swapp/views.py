@@ -22,11 +22,17 @@ def index(request):
     }
     return render(request, 'swapp/index.html', context)
 
-def display(request, filename):
+def display(request, counter, filename):
+    counter = counter +1
     table = Table(filename)
     data = table.print_table()
+    to_show = 10 * counter
+    if to_show > len(data):
+        to_show = len(data)
+    output = data[:to_show]
     context = {
-        'data' : data,
+        'data' : output,
+        'link' : f'http://localhost:8000/swapp/display/{counter}/{filename}',
     }
     return render(request, 'swapp/display.html', context)
 

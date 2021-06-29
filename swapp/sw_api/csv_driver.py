@@ -20,7 +20,7 @@ class CsvDriver:
     
     def export(self, data: list) -> str:
         def generate_filename() -> str:
-            return f'{datetime.now()}.csv'
+            return f'{datetime.now().strftime("%Y-%m-%d_%H%M%S")}.csv'
         filename = generate_filename()
         with open(f'{self.data_dir}{filename}', 'x', newline='') as csvfile:
             writer = csv.DictWriter(csvfile, fieldnames=self.fieldnames)

@@ -2,6 +2,8 @@
 <html>
   <head>
     <meta charset="utf-8">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'simple.css' %}">
     <title>sw app !!!</title>
   </head>
   <body>
@@ -12,7 +14,7 @@
 {% if files_list %}
     <ul>
     {% for item in files_list %}
-        <li><a href="/swapp/display/{{ item.filename }}">{{ item.filename }}</a></li>
+        <li><a href="/swapp/display/1/{{ item.filename }}">{{ item.filename }}</a></li>
     {% endfor %}
     </ul>
 {% else %}
